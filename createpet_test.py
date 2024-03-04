@@ -3,7 +3,7 @@ import pytest
 
 
 def test_post_petstore():
-    url = "https://petstore.swagger.io/v2/pethttps://petstore.swagger.io/v2/pet"
+    url = "https://petstore.swagger.io/v2/pet"
 
     pet_data = {
         "id": 1,
@@ -13,7 +13,7 @@ def test_post_petstore():
 
     response = requests.post(url, json=pet_data)
     assert response.status_code == 200
-    assert response.headers["Content-Type"] == "Content-Type, api_key, Authorization"
+    assert response.headers["Content-Type"] == "application/json"
     returned_pet = response.json()
     assert returned_pet["id"] == pet_data["id"]
     assert returned_pet["name"] == pet_data["name"]
